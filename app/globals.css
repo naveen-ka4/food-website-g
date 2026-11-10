@@ -1,0 +1,435 @@
+/*
+================================================================================
+HEY GARLIC DESIGN SYSTEM • VISUAL TOKENS EXTRACTED FROM REFERENCE SPEC (v1.0)
+================================================================================
+
+1. COLOR PALETTE
+- Background:       #f6f5f0 -> oklch(0.970 0.007 97.4)  (warm oatmeal/linen page canvas)
+- Cards & UI:       #fdfdfa -> oklch(0.993 0.004 106.5) (crisp warm ivory surface)
+- Text & Borders:   #1a1a1a -> oklch(0.218 0.000 89.9)  (deep charcoal for typography & dark pills)
+- Muted Accent:     #71717a -> oklch(0.552 0.014 285.9) (neutral zinc for metadata, timestamps, reviews)
+- Organic Sage:     #8ba888 -> oklch(0.701 0.056 142.5) (herbal food accent, vegetarian badges, leaf accents)
+- Warm Butter:      #f5e1a4 -> oklch(0.912 0.081 92.1)  (warm butter yellow secondary accent/chips)
+- Subtle Border:    #e2ded4 -> oklch(0.901 0.014 88.7)  (gentle card and input border)
+- Destructive Red:  #e15b50 -> oklch(0.642 0.170 27.5)  (spicy red error and hot tag accent)
+
+2. TYPOGRAPHY HIERARCHY (Claude AI Inspired)
+- Headline Serif:   Newsreader / Tiempos Text (Warm editorial serif headlines, h1, h2, recipe titles)
+- Body & UI Sans:   Inter Sans (Body text, forms, navigation, metadata)
+- Accent Script:    Caveat / Handwritten Script (Hand-drawn creative doodle annotations)
+- Monospace:        Geist Mono (Measurements, serving numbers, code)
+
+3. RADII SCALE
+- S:                8px     (--radius-sm: calc(var(--radius) * 0.667)) - Inner contents & small chips
+- M:                12px    (--radius-lg: var(--radius))               - Cards, forms, inputs (root 0.75rem)
+- L:                24px    (--radius-2xl: calc(var(--radius) * 2))    - Images, categories, featured panels
+- L:                12px    (--radius-xl)                              - Claude AI modern rounded buttons, inputs, pills
+- Full:             9999px  (rounded-full)                             - Circles, user avatars
+
+4. ELEVATION & SHADOWS
+- Card Shadow:      0 2px 10px -2px oklch(0.218 0 0 / 4%), 0 1px 3px -1px oklch(0.218 0 0 / 3%)
+- Button Shadow:    0 1px 2px 0 oklch(0.218 0 0 / 5%)
+- Focus Ring:       2px offset with oklch(0.701 0.056 142.5) [Organic Sage ring]
+================================================================================
+*/
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Extended Brand Colors */
+  --color-sage: var(--sage);
+  --color-sage-foreground: var(--sage-foreground);
+  --color-butter: var(--butter);
+  --color-butter-foreground: var(--butter-foreground);
+
+  /* Analytics & Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Tokens */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography Fonts */
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-script: var(--font-script);
+  --font-mono: var(--font-mono);
+
+  /* Border Radii Scale aligned to reference (S=8px, M=12px, L=24px, Full=9999px) */
+  --radius-sm: calc(var(--radius) * 0.667);
+  --radius-md: calc(var(--radius) * 0.833);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.333);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-3xl: calc(var(--radius) * 2.667);
+  --radius-4xl: calc(var(--radius) * 3.333);
+}
+
+:root {
+  /* Light Mode (#FFFFFF background and #000000 text/icons) */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #000000;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #8ba888;
+  --accent-foreground: #000000;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #000000;
+
+  /* Extended Brand Tokens */
+  --sage: #8ba888;
+  --sage-foreground: #000000;
+  --butter: #fef08a;
+  --butter-foreground: #000000;
+
+  /* Charts */
+  --chart-1: #8ba888;
+  --chart-2: #eab308;
+  --chart-3: #ef4444;
+  --chart-4: #71717a;
+  --chart-5: #000000;
+
+  /* Base Radius */
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #000000;
+}
+
+.dark {
+  /* Claude AI Dark Mode Palette */
+  /* Main Background: Charcoal / Off-Black (#121212) */
+  --background: #121212;
+  /* Primary Text: Off-White (#E1E1E1) */
+  --foreground: #E1E1E1;
+  /* Elevated Cards: Muted Gray (#252525) */
+  --card: #252525;
+  --card-foreground: #E1E1E1;
+  /* Tooltips, Popovers, Overlays (#252525) */
+  --popover: #252525;
+  --popover-foreground: #E1E1E1;
+  --primary: #E1E1E1;
+  --primary-foreground: #121212;
+  /* Surface / Panels: Deep Slate (#1E1E1E) */
+  --secondary: #1E1E1E;
+  --secondary-foreground: #E1E1E1;
+  --muted: #1E1E1E;
+  --muted-foreground: #9E9E9E;
+  --accent: #8ba888;
+  --accent-foreground: #E1E1E1;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2A2A2A;
+  --input: #1E1E1E;
+  --ring: #E1E1E1;
+
+  --sage: #8ba888;
+  --sage-foreground: #ffffff;
+  --butter: #eab308;
+  --butter-foreground: #121212;
+
+  --chart-1: #8ba888;
+  --chart-2: #eab308;
+  --chart-3: #ef4444;
+  --chart-4: #9E9E9E;
+  --chart-5: #E1E1E1;
+
+  /* Surface / Sidebar: Deep Slate (#1E1E1E) */
+  --sidebar: #1E1E1E;
+  --sidebar-foreground: #E1E1E1;
+  --sidebar-primary: #E1E1E1;
+  --sidebar-primary-foreground: #121212;
+  --sidebar-accent: #252525;
+  --sidebar-accent-foreground: #E1E1E1;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #E1E1E1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  ::selection {
+    background-color: #fde047;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background-color: #fde047;
+    color: #000000;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-yellow-300 selection:text-black dark:selection:bg-yellow-400 dark:selection:text-black;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Reusable Shared Component Styles */
+@layer components {
+  /* Base surface card with gentle border & subtle shadow */
+  .card {
+    @apply rounded-2xl border border-border bg-card text-card-foreground p-6 transition-all;
+    box-shadow: 0 2px 10px -2px oklch(0.218 0 0 / 0.04), 0 1px 3px -1px oklch(0.218 0 0 / 0.03);
+  }
+
+  /* Form input base style with soft focus ring */
+  .input {
+    @apply flex h-10 w-full rounded-xl border border-input bg-card px-3.5 py-2 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-ring disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Form field label */
+  .label {
+    @apply text-sm font-medium leading-none text-foreground select-none;
+  }
+
+  /* Small pill badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-xs font-medium tracking-wide transition-colors;
+  }
+
+  /* 1px subtle divider */
+  .divider {
+    @apply h-px w-full bg-border shrink-0;
+  }
+
+  /* Standard page layout container */
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Semantic Editorial Headings with Serif Display */
+  .heading-1 {
+    @apply font-heading text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-foreground leading-[1.1];
+  }
+
+  .heading-2 {
+    @apply font-heading text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-foreground leading-[1.2];
+  }
+
+  .heading-3 {
+    @apply font-heading text-xl sm:text-2xl font-normal tracking-tight text-foreground leading-tight;
+  }
+
+  .heading-4 {
+    @apply font-heading text-lg sm:text-xl font-normal text-foreground leading-[1.3];
+  }
+
+  /* Recipe detail reading layout */
+  .prose-recipe {
+    @apply mx-auto max-w-prose text-base leading-relaxed text-foreground;
+
+    h2 {
+      @apply font-heading text-2xl sm:text-3xl font-normal tracking-tight text-foreground leading-[1.2] mt-8 mb-4;
+    }
+
+    h3 {
+      @apply font-heading text-xl sm:text-2xl font-normal tracking-tight text-foreground leading-tight mt-6 mb-3;
+    }
+
+    p {
+      @apply mb-4 leading-relaxed;
+    }
+
+    ul {
+      @apply my-4 list-disc pl-5;
+    }
+
+    ol {
+      @apply my-4 list-decimal pl-5;
+    }
+
+    li {
+      @apply mb-2;
+    }
+  }
+
+  /* Print Styles for Recipes */
+  @media print {
+    header,
+    footer,
+    aside,
+    nav,
+    button,
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white !important;
+      color: black !important;
+      font-size: 12pt;
+    }
+
+    main {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+
+    img {
+      max-width: 100% !important;
+      page-break-inside: avoid;
+    }
+
+    section {
+      page-break-inside: avoid;
+    }
+  }
+}
+
+/* Custom Minimal Scrollbar Utility */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150, 150, 150, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(150, 150, 150, 0.28);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(150, 150, 150, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Search Bar Focus Style (calm, minimal border in both Light & Dark modes) */
+.search-bar-glow {
+  transition: border-color 0.15s ease;
+}
+
+.search-bar-glow:focus-within {
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+.dark .search-bar-glow:focus-within {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: none !important;
+}
+
+/* Hide browser default clear and search cancel buttons to prevent duplicate X icons across Edge, Chrome, Safari */
+input::-ms-clear {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input::-ms-reveal {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
